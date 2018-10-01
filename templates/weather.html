@@ -1,0 +1,13 @@
+{% block content %}
+  <h1>  Simple WTF-Form </h1>
+  <form method = 'POST' action "http://localhost:5000/zipcode">
+    {{form.hidden_tag()}}
+    {% for message in get_flashed_messages() %}
+      {% for key in message %}
+        {{key}} - {{message[key][0]}}
+    {% endfor %}
+    {% endfor %}
+    <p> {{form.zipcode.label }} {{ form.zipcode() }}</p>
+    {{form.submit()}}
+  </form>
+{% endblock %}
